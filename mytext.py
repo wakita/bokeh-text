@@ -7,9 +7,6 @@ from bokeh.io import show
 
 class MyText(HTMLBox):
     __implementation__ = 'mytext.ts'
-    text = String(default='')
+    text = List(String)
 
-show(column(MyText(text='This is a pen.'),
-            MyText(text='Is this a pen?'),
-            MyText(text='This is an apple.'),
-            MyText(text='I like oranges.')))
+show(column(MyText(text=['This is a pen.', 'Is this a pen?', 'This is an apple.', 'I like oranges'])))
