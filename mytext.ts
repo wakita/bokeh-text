@@ -8,13 +8,15 @@ export class MyTextView extends HTMLBoxView {
 
   render(): void {
     super.render()
-    this.el.appendChild(div({}, 'This is a pen.'))
+    this.el.appendChild(div({}, this.model.text))
   }
 }
 
 export namespace MyText {
   export type Attrs = p.AttrsOf<Props>
-  export type Props = HTMLBox.Props
+  export type Props = HTMLBox.Props & {
+    text: p.Property<string>
+  }
 }
 
 export interface MyText extends MyText.Attrs {}
@@ -25,6 +27,7 @@ export class MyText extends HTMLBox {
   static init_MyText(): void {
     this.prototype.default_view = MyTextView
     this.define<MyText.Props>({
+      text: [p.String],
     })
   }
 }
