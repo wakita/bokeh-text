@@ -9,4 +9,4 @@ class MyText(HTMLBox):
     __implementation__ = 'mytext.ts'
     text = List(String)
 
-show(column(MyText(text=['This is a pen.', 'Is this a pen?', 'This is an apple.', 'I like oranges'])))
+show(column(MyText(text=['This', 'is', 'a', 'pen.'])))

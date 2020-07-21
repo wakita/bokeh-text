@@ -1,6 +1,6 @@
 import {HTMLBox, HTMLBoxView} from "models/layouts/html_box"
 
-import {div} from "core/dom"
+import {div, span} from "core/dom"
 import * as p from "core/properties"
 
 export class MyTextView extends HTMLBoxView {
@@ -8,7 +8,8 @@ export class MyTextView extends HTMLBoxView {
 
   render(): void {
     super.render()
-    this.el.appendChild(div({}, this.model.text.join(' - ')))
+    let sentence = this.model.text.map(word => span({}, word + ' '))
+    this.el.appendChild(div({}, sentence))
   }
 }
 
